@@ -1,0 +1,62 @@
+HTML, CSS, and JavaScript are the three main languages used for developing websites and web applications
+HTML: Hypertext Markup language -> How you set up the layout of your website, and how you specify any and all elements on your page
+every web page is a separate html file, and is referred to as an HTML document
+CSS: Cascading Stylesheet Syntax -> Used to style the elements and objects on your HTML page
+JavaScript: A scripting language used to add behavior and functionality to your web pages
+
+URL: Uniform Resource Locator 
+IP Address: An Internet Protocol address, and that is a numerical label such as 192. 0. 2. 1, that is a unique address for each
+computer or machine that is connected to a computer network that uses the Internet Protocol for communication. These IP addresses
+serve two main purposes: the first one is network interface identification, and location addressing.
+
+Location Addressing: IP geolocation is the mapping of an IP address to the geographic location of the internet from the 
+connected device. 
+
+DNS: Domain Name Systems (Most ISPs maintain and host their own DNS system but there are also open source alternatives provided by companies such as Google)
+ISP: Internet Service Provider
+
+Modem: A modem is a box that allows you to connect your home network to the wider internet
+Router: A router is a box that allows you to create a home network and connect all of your devices to it and let your devices communicate with each other without having to go over the internet
+
+Your Computer -> Router -> Modem -> ISP -> RSP -> DNS -> Internet -> Reach Target Server (once you reach the target server you also have to go through their ISP and modem and router and so on)
+Your Computer -> Router -> Modem -> ISP -> RSP -> DNS -> Internet -> Target ISP -> Target Modem -> Target Router -> Target Server
+
+LAN: Local Area Network -> Is a network that covers a small geographical area, such as a home, an office, or a small building. Typically a LAN is all plugged into the same modem or same internet connection.
+WAN: Wide Area Networks -> Is a network that covers a larger geographical area, such as a suburb, or a neighborhood, or a city, or even the planet. Typically made up of smaller LAN networks.
+
+The internet protocol is a suite of protocols or standards that were created to standardize communication across the internet and different networks.
+These are a set of rules or guidelines defined for how computers should talk to each other so that we are all speaking a common language and we can connect any device with any device.
+
+the current two most popular transmission protocols are:
+TCP/IP: Transmission Control Protocol
+UDP: User Datagram Protocol
+
+Packets: A way for your computer to break up data into small easily transferrable chunks of data, each with their own header that contains information regarding the source of the data, the destination of the data, the total number of packets, the current packet's number, and other flags and critical information to ensure this data is transferred successfully. If a packet is dropped the server can simply request it again from my computer. Once all packets arrive, the server sends a confirmation to my computer.
+
+HTTP: Hypertext Transfer Protocol
+HTTPS: Hypertext Transfer Protocol Secure
+HTTP vs HTTPS: HTTP is unsecured while HTTPS is secured. HTTP uses port 80 while HTTPS uses port 443. HTTP operates at the application layer, while HTTPS operates at the transport layer. No SSL certificates required for HTTP, but for HTTPS it is required and you will need to have a CA to sign it.
+
+CA: Certificate Authority - Trusted entity that issues and signs SSL certificates.
+SSL: Secure Sockets Layer - Basically digital certificates that are data files which we use to cryptographically link an entity with a public key. Web browser then uses them to authenticate content sent from web server, making sure the content delivered can be trusted. 
+
+HTTP Request Methods:
+- Get: Retrieve a specific Resource
+- Post: Creating a brand new Resource
+- Put: Updating an entire existing Resource (If you make a put request to update a resource that doesn't exist, it will create a new one with that data)
+- Patch: Partially updating a Resource (If you make a patch request to update a resource that doesn't exist, It can cause alot of issues and may fail)
+- Delete: Deleting an existing Resource
+
+Three Types of CSS:
+
+Inline CSS: Inline CSS is defined in the same line to affect only that specific tag.
+Embedded CSS: Embedded CSS is defined in the <head></head> section of a HTML document, and is applied to the whole document.
+External CSS: External CSS is defined in a separate CSS document called a stylesheet, and is applied to the whole document.
+
+When it comes to CSS, the Specificity matters. There is a Specificity Hierarchy and each element selector has a position in that Hierarchy. Inline CSS has the highest priority, Identifiers (AKA element IDs) and these have the second highest priority in the Hierarchy. Next you have Classes, pseudo-classes, and attributes in that order. 
+
+Classes: are the CSS classes you define such as ClassA in our example that you apply to elements manually
+pseudo-classes: are <h1>, <h2>, <p>, etc
+attributes: hover, click, these type of attributes
+
+Best practice when writing CSS is to use External stylesheets as you can reuse the code in more than one HTML document easily.
