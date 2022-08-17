@@ -21,7 +21,7 @@
         }
     </style>
 
-    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="./assets/css/styles.css">
 
 </head>
 <body>
@@ -32,7 +32,7 @@
     <h5 class="classA" id="idA">This is Header 5</h5>
     <h6>This is Header 6</h6>
 
-    <a href="https://antra.com"> <img src="https://antra.com/wp-content/uploads/2021/02/2021-02-18-2.png" width="250px" alt="Antra Logo" style="position: absolute; right: 45%; top: 20%;" /></a>
+    <!-- <a href="https://antra.com"> <img src="https://antra.com/wp-content/uploads/2021/02/2021-02-18-2.png" width="250px" alt="Antra Logo" style="position: absolute; right: 45%; top: 20%;" /></a>
 
     <p>This will be some paragraph text. Lets use Lorem Ipsum</p>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. <span style="color: red;">Illum laborum dolore culpa eum consequatur</span> nobis quod molestias nam modi recusandae praesentium, accusamus quos voluptas expedita! Error quos sapiente minima sit. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptas ex laboriosam iure magni reprehenderit atque illum corrupti hic, repellat voluptatibus nostrum commodi nobis pariatur! Neque recusandae iste numquam veniam reprehenderit.</p> <br /> <hr> <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione expedita ad tempore necessitatibus at natus, omnis eos sint quo atque voluptates saepe, minus fugiat dolorum quae dignissimos sed dolores obcaecati. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae ipsum quibusdam aspernatur, vero quisquam magni assumenda at recusandae id eos pariatur optio dolorem temporibus eaque modi facere dolores veniam quia!</p>
@@ -125,6 +125,47 @@
         <li>3</li>
         <li>4</li>
         <li>5</li>
-    </ol>
+    </ol> -->
+
+    <table border="1" cellpadding="12" style="text-align: center;">
+        <caption align="TOP">This is the label for my table</caption>
+        <thead>
+            <tr>
+                <th>Column 1, Row 1</th> <!-- colspan for horizontal merge cells -->
+                <th>Column 2, Row 1</th>
+                <th>Column 3, Row 1</th> <!-- rowspan for vertical merge cells -->
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Column 1, Row 2</td>
+                <td>Column 2, Row 2</td>
+                <td>Column 3, Row 2</td>
+            </tr>
+            <tr>
+                <td>Column 1, Row 3</td>
+                <td>Column 2, Row 3</td>
+                <td>Column 3, Row 3</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>Footer Column 1, Row 4</td>
+                <td>Footer Column 2, Row 4</td>
+                <td>Footer Column 3, Row 4</td>
+            </tr>
+        </tfoot>
+    </table>
+
+    <br /><br />
+
+    <form>
+        <label for="username">Username: </label>
+        <input type="text" name="username" id="username" placeholder="Enter Username Here" /> <br />
+        <label for="password">Password: </label>
+        <input type="password" name="password" id="password" placeholder="Enter Password Here" /> <br />
+        <input type="submit" value="Submit Form" />
+    </form>
+
 </body>
 </html>
