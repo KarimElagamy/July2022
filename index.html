@@ -159,13 +159,15 @@
 
     <br /><br />
 
-    <form>
-        <label for="username">Username: </label>
-        <input type="text" name="username" id="username" placeholder="Enter Username Here" /> <br />
+    <form id="myForm" onsubmit="validateForm()">
+        <label for="username">Email: </label>
+        <input type="email" name="email" id="email" placeholder="Enter Email Here" /> <br />
         <label for="password">Password: </label>
         <input type="password" name="password" id="password" placeholder="Enter Password Here" /> <br />
         <input type="submit" value="Submit Form" />
     </form>
-
+    <button id="changeBG">Change BG</button>
+    <button id="resetButton">Reset Form</button>
+<script src="./assets/scripts/app.js"></script>
 </body>
 </html>
