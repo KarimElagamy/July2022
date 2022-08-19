@@ -176,3 +176,151 @@ currentDate.setDate(currentDate.getDate() + 7);
 console.log(currentDate);
 //Once you have added the desired number of days, you can simply set a cookie using this variable by doing expires: " + dateVariable + "
 //Simply just concatenate the date variable you have created into the string that is setting the new cookie
+
+//XHR = XMLHttpRequest
+//What is an API? An API is an Application Programming Interface - Its a backend application that front end or web applications
+//can use to fetch data or interact with a database.
+//What is XML? XML is the previous version of data format that APIs used to return, nowadays we use JSON data format.
+var oReq = new XMLHttpRequest();
+oReq.addEventListener("load", reqListener);
+let id = 3;
+oReq.open("GET", "https://jsonplaceholder.typicode.com/posts/" + id);
+oReq.send();
+function reqListener(){
+    console.log(this.responseText);
+}
+
+var oReq = new XMLHttpRequest();
+oReq.addEventListener("load", reqListener);
+oReq.open("POST", "https://jsonplaceholder.typicode.com/posts");
+oReq.send("title=Example POST Request&body=Antra.com&userId=1");
+function reqListener(){
+    console.log(this.responseText);
+}
+
+//Put request and Patch request will be done the same way as the POST request because they are for updating so you need a 
+//request body, which we define in the oReq.send(); But Delete request will be done the same way as the GET request because
+//you only need to send the ID, you don't need to send the details of the resource or post. 
+
+
+//Fetch API
+//Getting a Resource
+fetch("https://jsonplaceholder.typicode.com/posts")
+.then((response) => response.json())
+.then((json) => console.log(json));
+
+console.log(fetch("https://jsonplaceholder.typicode.com/posts")); //fetch API is a promise made specifically for getting data from APIs
+
+//Creating a Resource
+fetch("https://jsonplaceholder.typicode.com/posts", {
+    method: 'POST',
+    body: JSON.stringify({
+        title: 'Next Example Post Request',
+        body: 'Antra.com',
+        userId: 1,
+    }),
+    headers: {
+        'Content-type': 'application/json; charset=UTF-8'
+    },
+})
+.then((response) => response.json())
+.then((json) => console.log(json));
+
+//Updating a Resource
+fetch("https://jsonplaceholder.typicode.com/posts/1", {
+    method: 'PUT',
+    body: JSON.stringify({
+        id: 1,
+        title: 'Next Example PUT Request',
+        body: 'Antra.com',
+        userId: 1,
+    }),
+    headers: {
+        'Content-type': 'application/json; charset=UTF-8'
+    },
+})
+.then((response) => response.json())
+.then((json) => console.log(json));
+
+//Partially Update a Resource
+fetch("https://jsonplaceholder.typicode.com/posts/1", {
+    method: 'PATCH',
+    body: JSON.stringify({
+        title: 'Next Example PATCH Request',
+    }),
+    headers: {
+        'Content-type': 'application/json; charset=UTF-8'
+    },
+})
+.then((response) => response.json())
+.then((json) => console.log(json));
+
+//Deleting a Resource
+fetch("https://jsonplaceholder.typicode.com/posts/1", {
+    method: 'DELETE',
+});
+// .then((response) => response.json())   Don't need to console log as it just returns empty object
+// .then((json) => console.log(json));
+
+
+//Promises: a callback function to initialize this process that takes in two arguments: resolve and reject
+//resolve: the resource was loaded successfully/promise was executed successfully 
+//reject: means that the resource failed to load/promise failed to execute properly
+//both of these (resolve and reject) return something, so the order of resolve or reject matters.
+//Callback: is essentially a function that is passed in as a parameter.
+
+//Callbacks and Closures are used frequently in JavaScript. Callbacks are functions that are passed into another function 
+//as an argument. Closures are functions that are nested in other functions, and they are often used to avoid clashing
+//scopes with other parts of a JavaScript program.
+
+function promiseDemo(){
+    let p = new Promise(function(resolve, reject){
+        let dept={
+            id:1,
+            name:"Full Stack"
+        }
+        resolve(dept);
+        reject("The service is currently unavailable");
+    })
+    p.then(function(d){
+        console.log(d);
+    }).catch(function(e){
+        console.log(e);
+    });
+}
+
+promiseDemo();
+
+let p2 = new Promise((resolve, reject) => {
+    resolve(2);
+})
+p2.then(function(d){
+    console.log(d);
+    return d*2;
+}).then(function(d1){
+    console.log(d1);
+    return d1*2;
+}).then(function(d2){
+    console.log(d2);
+    return d2*2;
+}).then(function(d3){
+    console.log(d3);
+});
+
+//Regular Expressions
+//Regular Expressions are basically a concept in programming which allows you to validate your data or check the format
+//of your data according to a specific pattern. 
+function validateEmail(){
+    var inputText = document.getElementById("email").value;
+    var mailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    if(inputText.match(mailFormat)){
+        alert("Valid Email Address!");
+        document.myForm.email.focus();
+        return true;
+    }
+    else {
+        alert("You have entered an invalid email address!");
+        document.myForm.email.focus();
+        return false;
+    }
+}

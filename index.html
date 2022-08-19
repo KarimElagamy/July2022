@@ -161,7 +161,7 @@
 
     <form id="myForm" onsubmit="validateForm()">
         <label for="username">Email: </label>
-        <input type="email" name="email" id="email" placeholder="Enter Email Here" /> <br />
+        <input type="email" name="email" id="email" placeholder="Enter Email Here" onblur="validateEmail()"/> <br />
         <label for="password">Password: </label>
         <input type="password" name="password" id="password" placeholder="Enter Password Here" /> <br />
         <input type="submit" value="Submit Form" />
