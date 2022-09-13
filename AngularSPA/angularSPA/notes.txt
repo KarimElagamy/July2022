@@ -53,3 +53,12 @@ Secondly, using the providedIn array we inform the dependency injection system h
 
 @Output decorator marks the property as the Output property. What this does is initialize it as an eventTransmitter. The child component raises an event and passes data as the argument to said event and the parent component listens to events using event binding and reads the data.
 
+CORS Policy: Cross Origin Resource Sharing Policy
+
+What does cross origin mean? Simply means a different domain name trying to access resources or data from another domain name
+
+All the CORS policy does is add a special header to the API's response so that the browser will allow the request to occur
+
+CORS Policy is a browser requirement, the API does not care about CORS, but it is needed so that the browser can allow 
+AJAX requests to happen
+

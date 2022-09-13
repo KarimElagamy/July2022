@@ -11,6 +11,7 @@ import { CastDetailsComponent } from './Public/cast-details.component';
 import { MoviesComponent } from './Public/movies.component';
 import { GenresComponent } from './Public/genres.component';
 import { HttpClientModule } from '@angular/common/http'
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { HttpClientModule } from '@angular/common/http'
     NgbModule,
     CoreModule,
     SharedModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
