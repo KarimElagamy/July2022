@@ -62,3 +62,11 @@ All the CORS policy does is add a special header to the API's response so that t
 CORS Policy is a browser requirement, the API does not care about CORS, but it is needed so that the browser can allow 
 AJAX requests to happen
 
+Two types of Forms in Angular: Template Driven Forms, and Reactive Forms
+
+Template Driven Forms: Import FormsModule, All the work is done in the template (HTML File)
+Reactive Forms: Import ReactiveFormsModule, ALl the work is done in the component class (TypeScript File)
+
+Reactive Forms are also known as Model Driven Forms or Dynamic Forms
+
+
