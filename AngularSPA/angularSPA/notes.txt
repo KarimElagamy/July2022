@@ -69,4 +69,70 @@ Reactive Forms: Import ReactiveFormsModule, ALl the work is done in the componen
 
 Reactive Forms are also known as Model Driven Forms or Dynamic Forms
 
+Authentication is achieved by having the bearer token (our JWT token) in the header of every request we make to the API
+after the user is logged in. We do this to avoid having the API manage our user states or do any state management because our API is
+a REST API, and one of the biggest requirements of being a REST API is being stateless. Stateless API can cut down on costs alot in hardware
+or hosting fees as it requires alot of processing power to keep track of user sessions in the application memory, but if we leave the burden of
+authentication on the client (front end), then we can distribute the load and have a faster API without consuming as much resources.
 
+Websites with sensitive data like medical portals or web banking websites set very short JWT token lifetimes by having a short expiry time then 
+use refresh tokens to keep extending that JWT expiry time every time the user navigates to a different page or does something. This way if someone 
+forgets their computer on or walks away from their screen their account will be logged out automatically within a few minutes and their information 
+will be safe.
+
+To append the JWT token in every request header, we can simply store it in the local storage or session storage or cookies and use an Angular Interceptor to 
+append the token to every header of every request.
+
+Route Guards:
+Route Guards are interfaces provided for us by Angular which allow us to control the access for a certain route when we implement them based on a condition that we can specify
+
+The 5 types of route guards:
+CanActivate
+CanActivateChild
+CanDeactivate
+Resolve
+CanLoad
+
+we can have multiple route guards on the same route but in order for a user to navigate to that specific route, all of the included route guards must return true.
+if any of the route guards returns false, then navigation will be cancelled and the user will not be able to navigate to that path or access that resource.
+When you are usnig route guards it is worth it to consider using component-less routes, as this allows you to guard child routes not just that specific route.
+
+Angular HTTP Interceptor: a special service provided by Angular that can be used to intercept all the request and response calls for the application and modify, transform, or format them to our requirement before they continue down the application pipeline.
+Introduced recently along with the new HttpClientModule giving us the ability to modify our HTTP requests before they are sent to our backend application.
+
+Common Usecases:
+Authentication
+Adding custom headers to outgoing requests
+logging incoming responses 
+adding a loader to your website (like a loading icon/animation or progress bar) while requests process
+Coverting response format such as from XML to JSON or the other way around
+Caching information
+
+When we have multiple interceptors they form something called a forward-and-backward chain of request/response handlers.
+Angular will apply the interceptors in the order that you provide them to the application so if you provide interceptors A then B then Caching
+then requests are going to flow in the direction A to B to C on their way out of your application but when the response is returned
+the response will flow in the direction C to B to A.
+
+You can't change the order of remove interceptors later during the execution of your application, so if you want to enable and disable an interceptor automatically or dynamically 
+then you will have to build that functionality yourself into the interceptor itself.
+
+Observable and Observer: An observer is anything that is subscribed to an Observable
+
+with Observables, every subscribed Observer owns an independent execution or instance of the Observable
+
+RxJS Subjects:
+An RxJS subject is a special type of observable that allows values to be multicasted to many observers at the same time. Regular Observables are unicast and do not do this, so when someone
+subscribes to a regular observable it creates a new execution or instance of the observable that now belows to that subscriber, but when you subscribe to a subject, it does not create a new instance
+it simply just adds the subscriber to a list of subscribers that it stores in an array. Observers cannot tell whether they are subscribed to an observable or a subject, and whenever the subject receives
+new data, it will simply broadcast it out to all of its subscribers at the same time.
+
+RxJS BehaviorSubjects:
+Subjects have a few specializations (different types of subjects) which are BehaviorSubject, ReplaySubject, and AsyncSubject. BehaviorSubject is the important one to be familiar with, but you should at least
+know the names of all 3. The difference between a behaviorSubject and a regular Subject is that behaviorSubjects take a initial value as a parameter, while regular subjects dont. This is because the behavior 
+subject has a feature where it stores the current value, while the regular subject does not. This means that the regular subject broadcasts out its data and then forgets about it so you cannot retrieve it later,
+while a behaviorSubject always stores its current value so you can retrieve it at any time. This is why it needs to take a initial value, because it cannot have no "current" value it needs to store something so that's
+why you have to give it an initial value. Also after an observer subscribes to the behaviorSubject, the behaviorSubject will send the initial value that it started with to the observer when subscribed, then after it sends 
+that value, the behaviorSubject will send out the latest value to all of the observers.
+
+RxJS is a library, short for Reactive extensions for JavaScript, that was created for asynchronous programming and event based applications. This library is where we get observables as well as subjects, behaviorSubjects, ReplaySubjects, and AsyncSubjects.
+RxJS can be used with both React and Angular.
