@@ -1,8 +1,11 @@
 export interface User {
     nameid:      string;
-    given_name:  string;
-    family_name: string;
     email:       string;
+    family_name: string;
+    given_name:  string;
+    Country:     string;
+    language:    string;
+    isAdmin:     string;
     nbf:         number;
     exp:         number;
     iat:         number;

@@ -10,8 +10,11 @@ import { MovieDetailsComponent } from './Public/movie-details.component';
 import { CastDetailsComponent } from './Public/cast-details.component';
 import { MoviesComponent } from './Public/movies.component';
 import { GenresComponent } from './Public/genres.component';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AuthGuard } from './Core/Guards/auth.guard';
+import { AdminGuard } from './Core/Guards/admin.guard';
+import { JwtAdderInterceptor } from './Core/Interceptors/jwt-adder.interceptor';
 
 @NgModule({
   declarations: [
@@ -31,7 +34,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: JwtAdderInterceptor, multi: true },
+    AuthGuard,
+    AdminGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
